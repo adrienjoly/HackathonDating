@@ -43,7 +43,7 @@
       document.getElementById('user-info').innerHTML = '<img src="https://graph.facebook.com/' + response.id + '/picture">' + response.name;
     });
   }
-  
+  /*
 function likeIdea()
 {
 	FB.api('/johnyen/feed' + // johnyen, 505015469
@@ -56,9 +56,9 @@ function likeIdea()
 			}
 	});
 }
-
+*/
   
-function likeIdeaOnOwnWall()
+function likeIdea()
 {
 	FB.api('/me/hackathondating:like' + 
 				'?idea=http://adrienjoly.com/HackathonDating/idea1.html','post',
@@ -71,6 +71,21 @@ function likeIdeaOnOwnWall()
 	});
 }
   
+function proposeIdea()
+{
+	FB.api('/me/hackathondating:propose' + 
+				'?idea=http://adrienjoly.com/HackathonDating/idea1.html','post',
+				function(response) {
+		if (!response || response.error) {
+				alert('Error occured');
+		} else {
+			alert('Post was successful! Action ID: ' + response.id);
+			console.log(response);
+			}
+	});
+}
+  
+
 
 /*
   function getCommonLikes(response) {
