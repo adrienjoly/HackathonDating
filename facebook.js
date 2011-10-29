@@ -15,7 +15,7 @@
   };
   
   function login() {
-    FB.login(function(response) { }, {scope:'user_about_me,publish_actions'});
+    FB.login(function(response) { }, {scope:'user_about_me,publish_actions,publish_stream'});
   }
 
 
@@ -46,8 +46,8 @@
   
 function likeIdea()
 {
-	FB.api('/johnyen/feed/hackathondating:like' + // johnyen, 505015469
-				'?idea=http://adrienjoly.com/HackathonDating/idea1.html','post',
+	FB.api('/johnyen/feed' + // johnyen, 505015469
+				'?message=http://adrienjoly.com/HackathonDating/idea1.html','post',
 				function(response) {
 		if (!response || response.error) {
 				alert('Error occured');
