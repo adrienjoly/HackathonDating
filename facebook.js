@@ -34,6 +34,32 @@
   }
 
 
+  function sendRequest() {
+    FB.ui({
+      method: 'apprequests',
+      message: 'I have an idea!'
+    }, 
+    function(response) {
+      console.log('sendRequest response: ', response);
+    });
+  }
+
+  
+  function handleStatusChange(response) {
+    if (response.authResponse) {
+      console.log(response);
+      updateUserInfo(response);
+      //getCommonLikes(response);
+    }
+  }
+  
+  function updateUserInfo(response) {
+    FB.api('/me&fields=id,name', function(response) {
+      document.getElementById('user-info').innerHTML = '<img src="https://graph.facebook.com/' + response.id + '/picture">' + response.name;
+    });
+  }
+  
+
 /*
   function getCommonLikes(response) {
       var output = '';
@@ -83,28 +109,3 @@
     return false;
   }
   */
-  function sendRequest() {
-    FB.ui({
-      method: 'apprequests',
-      message: 'I have an idea!'
-    }, 
-    function(response) {
-      console.log('sendRequest response: ', response);
-    });
-  }
-
-  
-  function handleStatusChange(response) {
-    if (response.authResponse) {
-      console.log(response);
-      updateUserInfo(response);
-      getCommonLikes(response);
-    }
-  }
-  
-  function updateUserInfo(response) {
-    FB.api('/me&fields=id,name', function(response) {
-      document.getElementById('user-info').innerHTML = '<img src="https://graph.facebook.com/' + response.id + '/picture">' + response.name;
-    });
-  }
-  
