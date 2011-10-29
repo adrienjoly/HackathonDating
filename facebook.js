@@ -1,19 +1,4 @@
-  (function() {
-    var e = document.createElement('script'); e.async = true;
-    e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
-    document.getElementById('fb-root').appendChild(e);
-    }());
-
-  window.fbAsyncInit = function() {
-    FB.init({ appId: '300415503303521', 
-    status: true, 
-    cookie: true,
-    xfbml: true,
-    oauth: true});
-
-    FB.Event.subscribe('auth.statusChange', handleStatusChange);  
-  };
-  (function() {
+(function() {
     var e = document.createElement('script'); e.async = true;
     e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
     document.getElementById('fb-root').appendChild(e);
@@ -58,6 +43,19 @@
       document.getElementById('user-info').innerHTML = '<img src="https://graph.facebook.com/' + response.id + '/picture">' + response.name;
     });
   }
+  
+function likeIdea()
+{
+	FB.api('/me/hackathondating:like' + 
+				'?idea=http://adrienjoly.com/HackathonDating/idea1.html','post',
+				function(response) {
+		if (!response || response.error) {
+				alert('Error occured');
+		} else {
+			alert('Post was successful! Action ID: ' + response.id);
+			}
+	});
+}
   
 
 /*
