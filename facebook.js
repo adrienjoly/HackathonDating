@@ -71,6 +71,16 @@ function likeIdea()
   
 function proposeIdea() // => 10150520202139409
 {
+	FB.api('/me/feed' + 
+				'?message=http://adrienjoly.com/HackathonDating/idea1.html','post',
+				function(response) {
+		if (!response || response.error) {
+				alert('Error occured');
+		} else {
+			alert('Post was successful! Action ID: ' + response.id);
+			}
+	});
+	/*
 	FB.api('/me/hackathondating:propose' + 
 				'?idea=http://adrienjoly.com/HackathonDating/idea1.html','post',
 				function(response) {
@@ -80,6 +90,7 @@ function proposeIdea() // => 10150520202139409
 			alert('Post was successful! Action ID: ' + response.id);
 			}
 	});
+	*/
 }
   
 
