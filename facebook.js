@@ -63,6 +63,7 @@ function likeIdea()
 	FB.api('/10150520220974409/likes','post', function(response) {
 		if (!response || response.error) {
 				alert('Error occured');
+				console.log(response);
 		} else {
 			alert('Like was successful! Action ID: ' + response.id);
 			}
