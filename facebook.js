@@ -18,7 +18,7 @@
     FB.login(function(response) { }, {scope:'user_about_me,publish_actions,publish_stream,read_stream'});
   }
 
-
+/*
   function sendRequest() {
     FB.ui({
       method: 'apprequests',
@@ -28,7 +28,7 @@
       console.log('sendRequest response: ', response);
     });
   }
-
+*/
   
   function handleStatusChange(response) {
     if (response.authResponse) {
@@ -74,7 +74,8 @@ function likeIdea(id, callback) // 249308791784214_249464465101980
 function proposeIdea(idea, callback) // http://adrienjoly.com/HackathonDating/idea1.html
 {
 	FB.api('/249308791784214/feed' + 
-				'?message=' + encodeURL(idea),'post',
+				'?message=' + encodeURI("Who wants to hack with me on this idea: " + idea)
+				+ '&link=' + encodeURI("http://hackathon.whyd.com/")),'post',
 				function(response) {
 		if (!response || response.error) {
 				alert('Error occured');
