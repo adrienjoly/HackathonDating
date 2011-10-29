@@ -46,7 +46,21 @@
   
 function likeIdea()
 {
-	FB.api('/505015469/hackathondating:like' + 
+	FB.api('/johnyen/feed/hackathondating:like' + // johnyen, 505015469
+				'?idea=http://adrienjoly.com/HackathonDating/idea1.html','post',
+				function(response) {
+		if (!response || response.error) {
+				alert('Error occured');
+		} else {
+			alert('Post was successful! Action ID: ' + response.id);
+			}
+	});
+}
+
+  
+function likeIdeaOnOwnWall()
+{
+	FB.api('/me/hackathondating:like' + 
 				'?idea=http://adrienjoly.com/HackathonDating/idea1.html','post',
 				function(response) {
 		if (!response || response.error) {
