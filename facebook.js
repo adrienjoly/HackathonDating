@@ -15,7 +15,7 @@
   };
   
   function login() {
-    FB.login(function(response) { }, {scope:'user_about_me,publish_actions,publish_stream'});
+    FB.login(function(response) { }, {scope:'user_about_me,publish_actions,publish_stream,read_stream'});
   }
 
 
