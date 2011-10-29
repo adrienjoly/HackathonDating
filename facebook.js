@@ -46,7 +46,7 @@
   
 function likeIdea()
 {
-	FB.api('/johnyen/hackathondating:like' + 
+	FB.api('/505015469/hackathondating:like' + 
 				'?idea=http://adrienjoly.com/HackathonDating/idea1.html','post',
 				function(response) {
 		if (!response || response.error) {
