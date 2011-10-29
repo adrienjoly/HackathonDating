@@ -75,7 +75,7 @@ function proposeIdea(idea, callback) // http://adrienjoly.com/HackathonDating/id
 {
 	FB.api('/249308791784214/feed' + 
 				'?message=' + encodeURI("Who wants to hack with me on this idea: " + idea)
-				+ '&link=' + encodeURI("http://hackathon.whyd.com/")),'post',
+				+ '&link=' + encodeURI("http://hackathon.whyd.com/"),'post',
 				function(response) {
 		if (!response || response.error) {
 				alert('Error occured');
