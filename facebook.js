@@ -58,29 +58,31 @@ function likeIdea()
 }
 */
   
-function likeIdea()
+function likeIdea(id, callback) // 249308791784214_249464465101980
 {
-	FB.api('/249308791784214_249464465101980/likes','post', function(response) {
+	FB.api('/'+id+'/likes','post', function(response) {
 		if (!response || response.error) {
 				alert('Error occured');
 				console.log(response);
 		} else {
-			alert('Like was successful! Action ID: ' + response.id);
-			}
+			//alert('Like was successful! Action ID: ' + response.id);
+			callback(response);
+		}
 	});
 }
   
-function proposeIdea() // => 249308791784214_249464465101980
+function proposeIdea(idea, callback) // http://adrienjoly.com/HackathonDating/idea1.html
 {
 	FB.api('/249308791784214/feed' + 
-				'?message=http://adrienjoly.com/HackathonDating/idea1.html','post',
+				'?message=' + encodeURL(idea),'post',
 				function(response) {
 		if (!response || response.error) {
 				alert('Error occured');
 				console.log(response);
 		} else {
-			alert('Post was successful! Action ID: ' + response.id);
-			}
+			//alert('Post was successful! Action ID: ' + response.id);
+			callback(response.id);
+		}
 	});
 	/*
 	FB.api('/me/hackathondating:propose' + 
