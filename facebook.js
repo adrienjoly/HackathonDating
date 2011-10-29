@@ -60,7 +60,7 @@ function likeIdea()
   
 function likeIdea()
 {
-	FB.api('/10150520202139409/likes','post', function(response) {
+	FB.api('/10150520220974409/likes','post', function(response) {
 		if (!response || response.error) {
 				alert('Error occured');
 		} else {
@@ -69,7 +69,7 @@ function likeIdea()
 	});
 }
   
-function proposeIdea() // => 10150520202139409
+function proposeIdea() // => 10150520202139409 10150520220974409
 {
 	FB.api('/me/feed' + 
 				'?message=http://adrienjoly.com/HackathonDating/idea1.html','post',
