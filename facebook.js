@@ -77,6 +77,7 @@ function proposeIdea() // => 10150520202139409 10150520220974409
 				function(response) {
 		if (!response || response.error) {
 				alert('Error occured');
+				console.log(response);
 		} else {
 			alert('Post was successful! Action ID: ' + response.id);
 			}
